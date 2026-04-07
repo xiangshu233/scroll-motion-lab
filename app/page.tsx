@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Github, Sparkles } from "lucide-react";
 
 const demos = [
   {
@@ -65,8 +65,14 @@ export default function HubPage() {
             <span className="font-bold text-lg tracking-tight">UI 实验室</span>
           </div>
           <nav>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="text-sm text-zinc-400 hover:text-white transition-colors">
-              GitHub
+            <a
+              href="https://github.com/xiangshu233/scroll-motion-lab"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
+            >
+              <Github className="w-4 h-4" />
+              <span>GitHub</span>
             </a>
           </nav>
         </div>
