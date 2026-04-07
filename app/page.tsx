@@ -1,63 +1,124 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight, Sparkles } from "lucide-react";
 
-export default function Home() {
+const demos = [
+  {
+    id: "performance-collage",
+    title: "滚动驱动拼贴动画",
+    description: "参考 Apple 风格 Performance 区块拆分：中心主图与周围图片在滚动中展开，并配合文案渐入。",
+    image: "/demos/performance/performance5.jpg",
+    href: "/demos/performance-collage",
+    tags: ["GSAP", "ScrollTrigger", "拼贴布局"],
+  },
+  {
+    id: "mask-showcase",
+    title: "Mask 遮罩滚动",
+    description: "从 Apple 风格 Showcase 中拆分出的遮罩特效：滚动固定区间内进行遮罩放大与内容淡入。",
+    image: "/mask-logo.svg",
+    href: "/demos/mask-showcase",
+    tags: ["GSAP", "ScrollTrigger", "Mask"],
+  },
+  {
+    id: "airpods-frame-sequence",
+    title: "AirPods 帧动画",
+    description: "基于滚动进度驱动序列帧切换，复刻产品展示页常见的逐帧动画体验。",
+    image: "/demos/airpods-frame-sequence/assets/png_sequence/Untitled%20Linked%20Comp%200120.png",
+    href: "/demos/airpods-frame-sequence",
+    tags: ["序列帧", "滚动驱动", "产品展示"],
+  },
+  {
+    id: "scrolltrigger-image-zoom",
+    title: "ScrollTrigger 图片缩放",
+    description: "使用 GSAP ScrollTrigger 实现电影感滚动缩放效果：固定容器并随滚动放大图片。",
+    image: "https://assets-global.website-files.com/63ec206c5542613e2e5aa784/643312a6bc4ac122fc4e3afa_main%20home.webp",
+    href: "/demos/scrolltrigger-image-zoom",
+    tags: ["GSAP", "ScrollTrigger", "动画"],
+  },
+  {
+    id: "horizontal-parallax-gallery",
+    title: "横向视差画廊",
+    description: "基于 GSAP ScrollTrigger 的 containerAnimation，构建顺滑的横向滚动画廊与图片视差效果。",
+    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=3506&auto=format&fit=crop",
+    href: "/demos/horizontal-parallax-gallery",
+    tags: ["GSAP", "横向滚动", "视差"],
+  },
+  {
+    id: "sticky-grid-scroll",
+    title: "粘性网格滚动",
+    description:
+      "Codrops 风格的粘性区块：通过滚动驱动网格揭示、缩放与 Lenis 丝滑滚动，并使用 React 重构。",
+    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop",
+    href: "/demos/sticky-grid-scroll",
+    tags: ["GSAP", "ScrollTrigger", "Lenis", "网格"],
+  },
+];
+
+export default function HubPage() {
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-zinc-800">
+      <header className="border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-xl sticky top-0 z-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-indigo-400" />
+            <span className="font-bold text-lg tracking-tight">UI 实验室</span>
+          </div>
+          <nav>
+            <a href="https://github.com" target="_blank" rel="noreferrer" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              GitHub
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+        <div className="max-w-2xl mb-12 lg:mb-20">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white">
+            交互式 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">实验集</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-zinc-400 text-lg sm:text-xl">
+            基于 React、GSAP 与 Tailwind CSS 打造的创意编码实验、UI 组件与动画集合。
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {demos.map((demo) => (
+            <Link key={demo.id} href={demo.href} className="group outline-none block h-full">
+              <Card className="p-0 gap-0 h-full flex flex-col bg-zinc-900/80 border border-zinc-700/80 overflow-hidden transition-all duration-300 hover:border-zinc-500 hover:shadow-xl hover:shadow-indigo-500/10 focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl relative backdrop-blur-sm">
+                <div className="aspect-video overflow-hidden relative bg-zinc-800 rounded-t-xl">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={demo.image}
+                    alt={demo.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent opacity-60"></div>
+                </div>
+                <CardHeader className="p-5 flex-1 flex flex-col items-start text-left">
+                  <div className="flex flex-wrap items-center gap-2 mb-3 w-full">
+                    {demo.tags.map(tag => (
+                      <span key={tag} className="text-xs font-medium px-2.5 py-1 bg-zinc-800 text-zinc-300 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <CardTitle className="text-xl text-zinc-100 group-hover:text-indigo-400 transition-colors w-full">
+                    {demo.title}
+                  </CardTitle>
+                  <CardDescription className="text-zinc-400 mt-2 line-clamp-2 text-sm leading-relaxed w-full">
+                    {demo.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardFooter className="p-5 pt-0 border-t-0 bg-transparent flex items-center text-sm font-medium text-indigo-400 mt-auto justify-start w-full">
+                  <span className="flex items-center">
+                    查看演示
+                    <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </CardFooter>
+              </Card>
+            </Link>
+          ))}
         </div>
       </main>
     </div>
